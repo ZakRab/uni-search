@@ -1,0 +1,8 @@
+.display-card{
+  width: 250px;
+  height: 140px;
+  border-radius: 20px;
+  border-color: black;
+  border-style: solid;
+  padding: 10px;
+}
