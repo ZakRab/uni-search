@@ -11,8 +11,8 @@
 }
 .uniInfoAside{
   border: black solid 2px;
-  width: 400px;
+  flex-basis: 400px;
 }
 .uniDisplay{
-  width: 251px;
+  flex-basis: 251px;
 }
