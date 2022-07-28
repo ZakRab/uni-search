@@ -9,13 +9,10 @@
 .display-card:hover{
   cursor:pointer
 }
-.UniInfoAside{
+.uniInfoAside{
   border: black solid 2px;
   width: 400px;
 }
 .uniDisplay{
   width: 251px;
-}
-.uniInfoAside{
-  width: 500px;
 }

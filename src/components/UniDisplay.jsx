@@ -5,12 +5,12 @@ const UniDisplay = () => {
   const { data } = useAxiosUni();
   data && console.log(data);
   return (
-    <>
+    <div className="uniDisplay">
       {data &&
         data.map((val, idx) => {
           return <UniCard university={val} key={idx}></UniCard>;
         })}
-    </>
+    </div>
   );
 };
 

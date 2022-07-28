@@ -273,9 +273,9 @@ const SearchForm = () => {
           </select>
         </div>
       </form>
-    <div className="d-flex flex-column">
-      <UniDisplay className="uniDisplay"></UniDisplay>
-      <UniInfoAside className="uniInfoAside"></UniInfoAside>
+      <div className="d-flex flex-column">
+        <UniDisplay></UniDisplay>
+        <UniInfoAside></UniInfoAside>
       </div>
     </>
   );

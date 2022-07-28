@@ -14,6 +14,7 @@ export function WikiProvider(props) {
         wikiData,
         setWikiData,
         setWikiInput,
+        wikiInput,
       }}
     >
       {props.children}
