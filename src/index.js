@@ -5,14 +5,17 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { SearchProvider } from "./context/SearchContext";
 import { UserProvider } from "./context/UserContext";
+import { WikiProvider } from "./context/WikiContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <UserProvider>
-    <SearchProvider>
-      <App />
-    </SearchProvider>
-  </UserProvider>
+  <WikiProvider>
+    <UserProvider>
+      <SearchProvider>
+        <App />
+      </SearchProvider>
+    </UserProvider>
+  </WikiProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { SearchContext } from "../context/SearchContext";
 import useAxiosUni from "../hooks/useAxiosUni";
 import UniDisplay from "./UniDisplay";
+import UniInfoAside from "./UniInfoAside";
 const SearchForm = () => {
   const {} = useAxiosUni();
   const { searchInput, setSearchInput, countrySearch, setCountrySearch } =
@@ -272,7 +273,10 @@ const SearchForm = () => {
           </select>
         </div>
       </form>
-      <UniDisplay></UniDisplay>
+    <div className="d-flex flex-column">
+      <UniDisplay className="uniDisplay"></UniDisplay>
+      <UniInfoAside className="uniInfoAside"></UniInfoAside>
+      </div>
     </>
   );
 };
