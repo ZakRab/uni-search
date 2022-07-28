@@ -19,7 +19,7 @@ export default function useAxiosUni() {
         setData(
           response.data.map((val) => ({
             country: val.country,
-            university: val.name,
+            name: val.name,
             website: val.web_pages,
           }))
         );

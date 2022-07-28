@@ -5,7 +5,7 @@ import { UserContext } from "../context/UserContext";
 const Menu = () => {
   const { loggedInUser, setLoggedInUser } = useContext(UserContext);
   return (
-    <header className="navbar navbar-expand-lg opacity sticky">
+    <header className="navbar navbar-expand-lg ">
       <div className="container-fluid links">
         {loggedInUser && (
           <div>

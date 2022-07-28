@@ -8,7 +8,7 @@ const UniDisplay = () => {
     <>
       {data &&
         data.map((val, idx) => {
-          return <UniCard val={val} idx={idx}></UniCard>;
+          return <UniCard university={val} key={idx}></UniCard>;
         })}
     </>
   );
