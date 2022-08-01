@@ -36,6 +36,7 @@ const UniCard = ({ university, isSaved }) => {
               addSave(university);
               console.log(university);
             }}
+            data-testid="saveHeartAdd"
           >
             Add to saves
           </HiHeart>
@@ -46,6 +47,7 @@ const UniCard = ({ university, isSaved }) => {
             onClick={() => {
               removeSave(university);
             }}
+            data-testid="saveHeartRemove"
           >
             remove from saves
           </HiHeart>

@@ -35,9 +35,11 @@ const UniDisplay = () => {
           className="btn btn-outline-secondary"
           type="button"
           id="button-addon1"
-          onClick={() => setSearchInput(preSearch)}
         >
-          <BiSearchAlt2></BiSearchAlt2>
+          <BiSearchAlt2
+            onClick={() => setSearchInput(preSearch)}
+            data-testid="search-button"
+          ></BiSearchAlt2>
         </button>
       </div>
       <div className="margin-left">
