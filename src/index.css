@@ -1,9 +1,8 @@
 .display-card{
-  width: 250px;
-  height: 140px;
-  border-radius: 20px;
-  border-color: black;
-  border-style: solid;
+  padding-left: 10%;
+  width: 350px;
+  height: 160px;
+  box-shadow: 0px 0px 1px rgb(17 18 17 ) ;
   padding: 10px;
 }
 .display-card:hover{
@@ -12,7 +11,135 @@
 .uniInfoAside{
   border: black solid 2px;
   flex-basis: 400px;
+  padding: 2px;
+  display: inline;
 }
 .uniDisplay{
-  flex-basis: 251px;
+  flex-basis: 351px;
+    overflow: auto;
+    height: 820px;
+}
+.width40p{
+  width: 40%;
+}
+.width70p{
+  width: 70%;
+}
+
+.width55p{
+  width: 55%;
+}
+.width240px{
+  width: 260px;
+}
+.margin-auto{
+  margin: auto;
+}
+.margin-top5px{
+  margin-top: 10px;
+}
+.margin-left15p{
+  margin-left: 15%;
+}
+.margin-bottom40px{
+  margin-bottom: 40px;
+}
+.login-border{
+  border: 3px gray solid;
+  border-radius: 10px;
+}
+.login-margin{
+  margin: auto;
+  margin-top: 100px;
+  padding: 20px;
+}
+body{
+  font-family: 'Lato', sans-serif;
+}
+.logo-login{
+  width: 200px;
+  position: relative;
+  display: block;
+  margin: auto;
+}
+.overflow{
+  overflow: auto;
+  height: 970px;
+}
+
+.flex-grow{
+  flex-grow: 1;
+}
+
+.bg-blue{
+  background-color: rgb(70, 155, 248);
+}
+.menu-items{
+text-decoration: none;
+}
+.text-black{
+  color: black;
+}
+.shadow-border{
+  box-shadow: 0px 0px 13px rgb(17 18 17 / 68%) 
+}
+.shadow-border-bottom{
+  box-shadow: 0 -5px 5px -5px #333;
+}
+.gray{
+  color: gray;
+}
+.red{
+  color: red;
+}
+.gap{
+  gap: 7px;
+}
+.border-radius{
+  border-radius: 10px;
+  border: 2px black solid;
+}
+.margin-right{
+  margin-right: 6px;
+}
+.margin-left{
+  margin-left: 6px;
+}
+.justify{
+  justify-content: space-evenly;
+}
+.active {
+color: rgb(178, 38, 30) !important;
+}
+.height100px{
+  height: 70px;
+}
+.vl {
+  border-left: 2px solid gray;
+  height: 50px;
+}
+.Uni-info-img{
+  max-width: 350px;
+}
+.search-form{
+  color: black;
+}
+.p-fixed{
+  position: fixed;
+}
+.search-width{
+  margin-left: 3px;
+  width: 240px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 20%), 0 -1px 0px rgb(0 0 0 / 2%)
+}
+.hidden-under{
+  width: 240;
+  height: 30px;
+}
+.close-x{
+  position: relative;
+  opacity: .2;
+  z-index: 1;
+  align-self: flex-start;
+
 }

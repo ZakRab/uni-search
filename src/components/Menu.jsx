@@ -5,34 +5,38 @@ import { UserContext } from "../context/UserContext";
 const Menu = () => {
   const { loggedInUser, setLoggedInUser } = useContext(UserContext);
   return (
-    <header className="navbar navbar-expand-lg ">
+    <header className="navbar navbar-expand-lg shadow-border">
       <div className="container-fluid links">
-        {loggedInUser && (
-          <div>
-            <NavLink to="/search" className="links">
-              Search Universities
-            </NavLink>
-          </div>
-        )}
+        <img
+          className="height100px"
+          src={require("./unisearch-logo-right.png")}
+          alt="what"
+        />
+        <div className="vl"></div>
+
+        <div id="menu-items">
+          <NavLink to="/search" className="menu-items text-black links">
+            Search Universities
+          </NavLink>
+        </div>
+        <div>
+          <NavLink to="/saves" className="links text-black menu-items ">
+            Saved Universites
+          </NavLink>
+        </div>
         {!loggedInUser && (
           <div>
-            <NavLink to="/login" className="links ">
+            <NavLink to="/login" className="links text-black menu-items">
               Login
             </NavLink>
           </div>
         )}
-        {loggedInUser && (
-          <div>
-            <NavLink to="/saves" className="links ">
-              Saved Universites
-            </NavLink>
-          </div>
-        )}
+
         {loggedInUser && (
           <div>
             <NavLink
               to="/login"
-              className="links"
+              className="links menu-items text-black"
               onClick={() => {
                 setLoggedInUser(null);
               }}

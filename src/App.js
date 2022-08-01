@@ -18,7 +18,7 @@ function App() {
           <Route path="/login" element={<Login></Login>}></Route>
           <Route path="/search" element={<SearchForm></SearchForm>}></Route>
           <Route path="/saves" element={<Saves></Saves>}></Route>
-          <Route path="*" element={<Navigate to="/login" />} />
+          <Route path="*" element={<Navigate to="/search" />} />
         </Routes>
       </Router>
     </>

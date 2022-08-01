@@ -2,10 +2,10 @@ import React, { useState } from "react";
 
 export const WikiContext = React.createContext(null);
 export function WikiProvider(props) {
-  const [wikiInput, setWikiInput] = useState("");
+  const [wikiInput, setWikiInput] = useState("omaha");
   const [wikiCall, setWikiCall] = useState(false);
   const [wikiData, setWikiData] = useState(null);
-
+  const [wikiLoc, setWikiLoc] = useState(null);
   return (
     <WikiContext.Provider
       value={{
@@ -15,6 +15,8 @@ export function WikiProvider(props) {
         setWikiData,
         setWikiInput,
         wikiInput,
+        wikiLoc,
+        setWikiLoc,
       }}
     >
       {props.children}

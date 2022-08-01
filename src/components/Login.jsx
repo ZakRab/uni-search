@@ -15,46 +15,56 @@ function Login() {
 
   return (
     <>
-      <h1 className="text-center">Login</h1>
-      <div className="mb-3 container">
-        <label htmlFor="userInput" className="form-label">
-          Username
-        </label>
-        <input
-          className="form-control"
-          value={username}
-          id="userInput"
-          type={"text"}
-          onChange={(e) => setUsername(e.target.value)}
-        ></input>
-      </div>
-      <div className="mb-3 container">
-        <label htmlFor="passwordInput" className="form-label">
-          Password
-        </label>
-        <input
-          className="form-control"
-          value={password}
-          id="passwordInput"
-          type={passText ? "text" : "password"}
-          onChange={(e) => setPassword(e.target.value)}
-        ></input>
-      </div>
-      <div>
-        <button className="btn btn-primary" onClick={showPassword}>
-          Show Password
-        </button>
-        <button
-          className="btn btn-primary"
-          onClick={() => {
-            if (username.length > 0 && password.length > 0) {
-              logIn(username);
-              navigate("/search");
-            }
-          }}
-        >
-          Login
-        </button>
+      <div className="login-border login-margin width55p">
+        <img
+          className="logo-login"
+          src={require("./unisearch-logo.png")}
+          alt="what"
+        />
+        <h1 className="text-center margin-bottom40px">Sign in</h1>
+        <div className="mb-3 container">
+          <label htmlFor="userInput" className="form-label margin-left15p">
+            Username
+          </label>
+          <input
+            className="form-control width70p margin-auto "
+            value={username}
+            id="userInput"
+            type={"text"}
+            onChange={(e) => setUsername(e.target.value)}
+          ></input>
+        </div>
+        <div className="mb-3 container">
+          <label htmlFor="passwordInput" className="form-label margin-left15p">
+            Password
+          </label>
+          <input
+            className="form-control width70p margin-auto"
+            value={password}
+            id="passwordInput"
+            type={passText ? "text" : "password"}
+            onChange={(e) => setPassword(e.target.value)}
+          ></input>
+        </div>
+        <div className="">
+          <button
+            className="btn btn-primary margin-auto d-block width70p "
+            onClick={showPassword}
+          >
+            Show Password
+          </button>
+          <button
+            className="btn btn-primary margin-auto margin-bottom40px d-block width70p margin-top5px "
+            onClick={() => {
+              if (username.length > 0 && password.length > 0) {
+                logIn(username);
+                navigate("/search");
+              }
+            }}
+          >
+            Sign in
+          </button>
+        </div>
       </div>
     </>
   );
