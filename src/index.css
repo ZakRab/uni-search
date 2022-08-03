@@ -1,3 +1,7 @@
+main{
+  background: rgb(148,238,118);
+background: linear-gradient(90deg, rgba(148,238,118,1) 4%, rgb(67, 133, 241) 100%);
+}
 .display-card{
   padding-left: 10%;
   width: 350px;
@@ -40,6 +44,9 @@
 }
 .margin-left15p{
   margin-left: 15%;
+}
+.margin-left5px{
+  margin-left: 10px;
 }
 .margin-bottom40px{
   margin-bottom: 40px;
@@ -136,10 +143,31 @@ color: rgb(178, 38, 30) !important;
   width: 240;
   height: 30px;
 }
+.padding-top{
+  padding-top: 15px;
+}
 .close-x{
   position: relative;
   opacity: .2;
   z-index: 1;
   align-self: flex-start;
+}
+.height1000px{
+height: 700px;
+}
 
+.bubbles{
+  height: 600px;
+}
+.width33p{
+  width: calc(100% / 3 - 10px);
+}
+.v-center{
+  padding: 20% 0 0;
+}
+.font-large{
+  font-size: 40px;
+}
+footer{
+  margin-top: auto;
 }

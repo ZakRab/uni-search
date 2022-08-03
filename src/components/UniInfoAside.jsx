@@ -13,13 +13,12 @@ const UniInfoAside = () => {
     <>
       <div
         className="uniInfoAside border-radius overflow  "
-        style={{ display: { infoDisplay } }}
-      >
+        style={{ display: { infoDisplay } }}>
+        <div className="close-x" onClick={() => setInfoDisplay("none")}>
         <GrClose
           size={30}
-          className="close-x"
-          onClick={() => setInfoDisplay("none")}
         ></GrClose>
+        </div>
         <h2> {wikiInput} </h2>
         <hr></hr>
         <img

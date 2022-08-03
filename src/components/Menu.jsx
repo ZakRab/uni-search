@@ -12,13 +12,18 @@ const Menu = () => {
           src={require("./unisearch-logo-right.png")}
           alt="what"
         />
-        <div className="vl"></div>
+        <div id="menu-items">
+          <NavLink to="/home" className="menu-items text-black links">
+            Home
+          </NavLink>
+        </div>
 
         <div id="menu-items">
           <NavLink to="/search" className="menu-items text-black links">
             Search Universities
           </NavLink>
         </div>
+
         <div>
           <NavLink to="/saves" className="links text-black menu-items ">
             Saved Universites
