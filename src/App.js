@@ -10,6 +10,7 @@ import {
   Navigate,
 } from "react-router-dom";
 import Home from "./components/Home";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/saves" element={<Saves></Saves>}></Route>
           <Route path="*" element={<Navigate to="/search" />} />
         </Routes>
+        <Footer></Footer>
       </Router>
     </>
   );

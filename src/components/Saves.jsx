@@ -7,8 +7,10 @@ const Saves = () => {
   const { saves, removeSave } = useContext(SearchContext);
   return (
     <>
+    <div className="margin-bottom40px">
       <h1 className="text-center">Your Saved Instituitions</h1>
-      <div className="margin-auto" >
+      <div className=" d-block margin-auto">
+      <div className="" >
       {saves &&
         saves.map((university, idx) => {
           return (
@@ -40,6 +42,8 @@ const Saves = () => {
             </div>
           );
         })}
+            </div>
+            </div>
             </div>
     </>
   );
