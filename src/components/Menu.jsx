@@ -32,7 +32,7 @@ const Menu = () => {
         {!loggedInUser && (
           <div>
             <NavLink to="/login" className="links text-black menu-items">
-              Login
+              Sign In
             </NavLink>
           </div>
         )}

@@ -29,7 +29,7 @@ const Home = () => {
           </div>
         </section>
         <div className="height300px"></div>
-        <section className=" ">
+        <aside className=" ">
           <div className="font-large carosel-header text-center">
             Search Our Directorty of Over 9,000 Universities and Colleges
           </div>
@@ -78,7 +78,7 @@ const Home = () => {
                 />
 
                 <Carousel.Caption>
-                  <h3>Energy and Technology Building, University of Bergen</h3>
+                  <h3>Bloomberg Center</h3>
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
@@ -89,7 +89,7 @@ const Home = () => {
                 />
 
                 <Carousel.Caption>
-                  <h3>Lassonde Studios, University of Utah</h3>
+                  <h3>Energy and Technology Building, University of Bergen</h3>
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
@@ -100,7 +100,7 @@ const Home = () => {
                 />
 
                 <Carousel.Caption>
-                  <h3>University of New York, Yuen Campus, Hong Kong</h3>
+                  <h3>Lassonde Studios, University of Utah</h3>
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
@@ -113,12 +113,12 @@ const Home = () => {
                 />
 
                 <Carousel.Caption>
-                  <h3>University of New York, Yuen Campus, Hong Kong</h3>
+                  <h3>Duke University</h3>
                 </Carousel.Caption>
               </Carousel.Item>
             </Carousel>
           </div>
-        </section>
+        </aside>
       </main>
     </>
   );

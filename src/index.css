@@ -2,8 +2,15 @@ main{
   background: rgb(203, 227, 248);
 /* background: linear-gradient(90deg, rgba(148,238,118,1) 4%, rgb(67, 133, 241) 100%); */
 }
+aside img{
+    width: 800px;
+    height: 900px;
+    object-fit:contain;
+    margin:auto
+}
+
 .animation{
-    animation: rotate-vert-center 6s ease-in-out infinite both
+    animation: rotate-vert-center 6s ease-in-out 2 both
 }
 .display-card{
   padding-left: 10%;
@@ -244,6 +251,10 @@ footer{
 }
 .carosel-header{
   font-weight: 300;
+}
+
+{
+
 }
 
  @keyframes rotate-vert-center {

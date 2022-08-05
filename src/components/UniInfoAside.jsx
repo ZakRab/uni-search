@@ -32,21 +32,6 @@ const UniInfoAside = () => {
           className="Uni-info-img margin-auto d-block"
         ></img>
         <hr></hr>
-
-        {/* <span>
-          {wikiLoc &&
-            wikiLoc.query.pages[Object.keys(wikiLoc.query.pages)[0]]
-              .coordinates &&
-            wikiLoc.query.pages[Object.keys(wikiLoc.query.pages)[0]]
-              .coordinates[0].lat}
-        </span> */}
-        {/* <span>
-          {wikiLoc &&
-            wikiLoc.query.pages[Object.keys(wikiLoc.query.pages)[0]]
-              .coordinates &&
-            wikiLoc.query.pages[Object.keys(wikiLoc.query.pages)[0]]
-              .coordinates[0].lon}
-        </span> */}
         <p>
           {wikiData &&
             wikiData.query.pages[Object.keys(wikiData.query.pages)[0]] &&

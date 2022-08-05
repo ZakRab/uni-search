@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 
 function Login() {
@@ -16,13 +16,13 @@ function Login() {
   return (
     <>
       <div className="login-border login-margin width55p">
-      <div className="animation">
-        <img
-          className="logo-login animation"
-          src={require("./unisearch-logo.png")}
-          alt="what"
-        />
-</div>
+        <div className="animation">
+          <img
+            className="logo-login animation"
+            src={require("./unisearch-logo.png")}
+            alt="what"
+          />
+        </div>
         <h1 className="text-center margin-bottom40px">Sign in</h1>
         <div className="mb-3 container">
           <label htmlFor="userInput" className="form-label margin-left15p">
@@ -66,6 +66,8 @@ function Login() {
           >
             Sign in
           </button>
+{/* <div> */}
+          {/* <button>or create a new account here</button></div> */}
         </div>
       </div>
     </>
