@@ -1,6 +1,5 @@
 const query = require("../config/database.config");
 const bcrypt = require("bcrypt");
-const router = require("../routes/users.routes");
 
 async function register(username, password) {
   try {
@@ -13,7 +12,7 @@ async function register(username, password) {
     const hashed = await bcrypt.hash(password, 12);
 
     await query("INSERT INTO users (password, username) VALUES (?,?) ", [
-      password,
+      hashed,
       username,
     ]);
     return { success: true, data: "successfully registered", error: null };

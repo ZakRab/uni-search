@@ -9,13 +9,13 @@ import { WikiProvider } from "./context/WikiContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <WikiProvider>
-    <UserProvider>
+  <UserProvider>
+    <WikiProvider>
       <SearchProvider>
         <App />
       </SearchProvider>
-    </UserProvider>
-  </WikiProvider>
+    </WikiProvider>
+  </UserProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

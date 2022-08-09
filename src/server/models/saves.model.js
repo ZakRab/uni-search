@@ -6,14 +6,17 @@ async function add(save) {
       "INSERT INTO saves (university, user_id, website, country) VALUES (?,?,?,?)",
       [save.university, save.user_id, save.website, save.country]
     );
-    return { success: true, data: insertId, error: null };
+    return { success: true, data: { ...save, id: insertId }, error: null };
   } catch (err) {
     return { success: false, data: null, error: "Something went wrong" };
   }
 }
-async function remove(id) {
+async function remove(university, user_id) {
   try {
-    await query("DELETE FROM saves WHERE university = ? )", [id]);
+    await query(
+      "DELETE FROM saves WHERE saves.university = ? AND saves.user_id = ?)",
+      [university.name, user_id]
+    );
     return { success: true, data: "deleted successfully", error: null };
   } catch (err) {
     return { success: false, data: null, error: "Something went wrong" };

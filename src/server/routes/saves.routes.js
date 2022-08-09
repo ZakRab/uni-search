@@ -17,9 +17,10 @@ router.put("/add", async (req, res) => {
   const resObj = await add(save);
   return res.send(resObj);
 });
-router.put("/delete/:id", (req, res) => {
+router.put("/delete/:id/user_id", (req, res) => {
   const id = req.params.id;
-  const resObj = await remove(id);
+  const user_id = req.params.user_id;
+  const resObj = await remove(id, user_id);
 
   return res.send(resObj);
 });
