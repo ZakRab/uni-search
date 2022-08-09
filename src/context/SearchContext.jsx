@@ -1,7 +1,6 @@
-import React, { useCallback, useContext, useState } from "react";
+import React, { useCallback, useContext, useState, useEffect } from "react";
 import { UserContext } from "./UserContext";
 import axios from "axios";
-import { add, remove } from "../server/models/saves.model";
 
 export const SearchContext = React.createContext(null);
 export function SearchProvider(props) {
@@ -11,12 +10,17 @@ export function SearchProvider(props) {
   const { loggedInUser } = useContext(UserContext);
 
   useEffect(() => {
+    if (!loggedInUser) {
+      return;
+    }
     async function init() {
-      if (loggedInUser) {
-        const res = await axios.get(`/api/saves/${loggedInUser.id}`);
+      try {
+        const res = await axios.get(`/api/saves/user/${loggedInUser.id}`);
         if (res.data.success) {
           setSaves(res.data.data);
         }
+      } catch (error) {
+        console.log(error);
       }
     }
     init();
@@ -24,7 +28,7 @@ export function SearchProvider(props) {
 
   const addSave = useCallback(async (university) => {
     try {
-      const res = await axios.put("api/saves/add", {
+      const res = await axios.put("/api/saves/add", {
         ...university,
         user_id: loggedInUser.id,
       });
@@ -34,18 +38,23 @@ export function SearchProvider(props) {
     } catch (error) {}
   });
 
-  const removeSave = useCallback(async (university) => {
-    try {
-      const res = await axios.delete(
-        `api/saves/remove/${university.name}/${loggedInUser.id}`
-      );
-      if (res.data.success) {
-        setSaves((curr) => curr.filter((val) => val.name !== university.name));
+  const removeSave = useCallback(
+    async (university) => {
+      try {
+        const res = await axios.delete(
+          `/api/saves/remove/${university.name}/${loggedInUser.id}`
+        );
+        if (res.data.success) {
+          setSaves((curr) =>
+            curr.filter((val) => val.name !== university.name)
+          );
+        }
+      } catch (error) {
+        console.log(error);
       }
-    } catch (error) {
-      console.log(error);
-    }
-  });
+    },
+    [setSaves, loggedInUser]
+  );
 
   const clearSaves = useCallback(() => setSaves([]));
 

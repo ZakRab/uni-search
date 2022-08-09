@@ -14,9 +14,11 @@ export function UserProvider(props) {
           password,
         });
         if (res.data.success) {
-          setloggedInUser(userName);
+          setloggedInUser(res.data.data);
         }
-      } catch (error) {}
+      } catch (error) {
+        console.log(error);
+      }
     },
     [userName]
   );

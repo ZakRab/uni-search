@@ -17,18 +17,17 @@ router.put("/add", async (req, res) => {
   const resObj = await add(save);
   return res.send(resObj);
 });
-router.put("/delete/:id/user_id", (req, res) => {
+router.put("/delete/:id/:user_id", async (req, res) => {
   const id = req.params.id;
   const user_id = req.params.user_id;
   const resObj = await remove(id, user_id);
 
   return res.send(resObj);
 });
-router.get("/user/:user_id", (req, res) => {
+router.get("/user/:user_id", async (req, res) => {
   const user_id = req.params.user_id;
-  const resObj = await getByUser(user_id)
+  const resObj = await getByUser(user_id);
   return res.send(resObj);
-
 });
 
 module.exports = router;
