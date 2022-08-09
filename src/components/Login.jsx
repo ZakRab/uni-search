@@ -48,27 +48,25 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
           ></input>
         </div>
-        <div className="">
-          <button
-            className="btn btn-primary margin-auto d-block width70p "
-            onClick={showPassword}
-          >
-            Show Password
-          </button>
-          <button
-            className="btn btn-primary margin-auto margin-bottom40px d-block width70p margin-top5px "
-            onClick={() => {
-              if (username.length > 0 && password.length > 0) {
-                logIn(username);
-                navigate("/search");
-              }
-            }}
-          >
-            Sign in
-          </button>
-{/* <div> */}
-          {/* <button>or create a new account here</button></div> */}
-        </div>
+
+        <button
+          className="btn btn-primary margin-auto d-block width70p "
+          onClick={showPassword}
+        >
+          Show Password
+        </button>
+        <button
+          className="btn btn-primary margin-auto margin-bottom40px d-block width70p margin-top5px "
+          onClick={() => {
+            if (username.length > 0 && password.length > 0) {
+              logIn(username);
+              navigate("/search");
+            }
+          }}
+        >
+          Sign in
+        </button>
+        <button className="btn">create a new account</button>
       </div>
     </>
   );

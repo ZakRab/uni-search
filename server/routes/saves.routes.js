@@ -1,10 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const { add, remove, getByUser } = require("../models/saves.model");
-// select that users saves and check if they already have the university
-// put university county and website into saves
-// select users saves
-// delete user save
 router.put("/add", async (req, res) => {
   const save = req.body;
   if (!save.university || save.website || save.country || save.user_id) {

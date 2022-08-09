@@ -14,7 +14,7 @@ async function add(save) {
 async function remove(university, user_id) {
   try {
     await query(
-      "DELETE FROM saves WHERE saves.university = ? AND saves.user_id = ?)",
+      "DELETE FROM saves WHERE saves.university = ? AND saves.user_id = ?",
       [university.name, user_id]
     );
     return { success: true, data: "deleted successfully", error: null };
