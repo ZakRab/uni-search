@@ -4,47 +4,71 @@ import { useNavigate } from "react-router-dom";
 export const UserContext = React.createContext(null);
 
 export function UserProvider(props) {
-  const [userName, setUserName] = useState(null);
-  const [loggedInUser, setloggedInUser] = useState(null);
+  const [loggedInUser, setLoggedInUser] = useState(null);
+
   const logIn = useCallback(
-    async (userName, password) => {
+    async (username, password) => {
       try {
-        const res = await axios.post("api/users/login", {
-          userName,
+        const res = await axios.post("/api/users/login", {
+          username,
           password,
         });
+        console.log(res);
         if (res.data.success) {
-          setloggedInUser(res.data.data);
+          setLoggedInUser(res.data.data);
         }
       } catch (error) {
         console.log(error);
       }
     },
-    [userName]
+    [setLoggedInUser]
   );
-  const logOut = useCallback(() => {
-    setloggedInUser(null);
-  }, [setloggedInUser]);
 
-  const register = useCallback(async (userName, password) => {
+  const logOut = useCallback(async () => {
     try {
-      const res = await axios.put("api/users/register", {
-        userName,
+      const res = await axios.get("/api/user/logout");
+      if (res.data.success) {
+        setLoggedInUser(null);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }, [setLoggedInUser]);
+
+  const register = useCallback(async (username, password) => {
+    try {
+      const res = await axios.put("/api/users/register", {
+        username,
         password,
       });
+      console.log(res);
       if (res.data.success) {
         console.log("registered!");
       }
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   });
+
+  // const verify = useCallback(async () => {
+  //   try {
+  //     const res = await axios.get("/api/user/verify");
+  //     if (res.data.success) {
+  //       setLoggedInUser(res.data.data);
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // });
+
   return (
     <UserContext.Provider
       value={{
+        // verify,
         loggedInUser,
-        setloggedInUser,
+        setLoggedInUser,
         logIn,
         logOut,
-        setUserName,
         register,
       }}
     >

@@ -2,8 +2,9 @@ const query = require("../config/database.config");
 const bcrypt = require("bcrypt");
 
 async function register(username, password) {
+  console.log("trying to register");
   try {
-    const [user] = query("SELECT * FROM users WHERE user.username = ?", [
+    const [user] = await query("SELECT * FROM users WHERE users.username = ?", [
       username,
     ]);
     if (user) {
@@ -15,38 +16,32 @@ async function register(username, password) {
       hashed,
       username,
     ]);
+    console.log("registered");
+
     return { success: true, data: "successfully registered", error: null };
   } catch (error) {
-    return { success: false, data: null, error: "Something went wrong :(" };
+    return {
+      success: false,
+      data: null,
+      error: "Something went wrong :(",
+    };
   }
-
-  // ensure the username is unique
-  // hash password
-  // add it to the database
-  // return info about things
 }
 
 async function login(username, password) {
   try {
-    const [user] = query("SELECT * FROM users WHERE user.username = ?", [
+    const [user] = await query("SELECT * FROM users WHERE users.username = ?", [
       username,
     ]);
-    if (user) {
-      return { success: true, data: null, error: null };
-    }
     if (!user) {
       return {
         success: false,
         data: null,
-        error: "no user with that username",
+        error: "username invalid",
       };
     }
-    const [hashedPassword] = query(
-      "SELECT user.password FROM users WHERE user.username = ?",
-      [username]
-    );
-    const match = await bcrypt.compare(password, hashedPassword);
-    if (match === false) {
+    const match = await bcrypt.compare(password, user.password);
+    if (!match) {
       return { success: false, data: null, error: "Password invalid" };
     }
     return {

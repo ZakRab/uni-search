@@ -1,12 +1,12 @@
 import React, { useContext, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const { logIn } = useContext(UserContext);
+  const { logIn, register } = useContext(UserContext);
   const [passText, setPassText] = useState(false);
 
   const showPassword = () => {
@@ -50,23 +50,33 @@ function Login() {
         </div>
 
         <button
-          className="btn btn-primary margin-auto d-block width70p "
+          className="btn btn-primary margin-auto d-block width70p"
           onClick={showPassword}
         >
           Show Password
         </button>
         <button
-          className="btn btn-primary margin-auto margin-bottom40px d-block width70p margin-top5px "
+          className="btn btn-primary margin-auto margin-bottom40px d-block width70p margin-top5px"
           onClick={() => {
             if (username.length > 0 && password.length > 0) {
-              logIn(username);
-              navigate("/search");
+              logIn(username, password);
+              // navigate("/search");
             }
           }}
         >
           Sign in
         </button>
-        <button className="btn">create a new account</button>
+
+        <button
+          className="btn btn-primary"
+          onClick={() => {
+            if (username.length > 4 && password.length >= 8) {
+              register(username, password);
+            }
+          }}
+        >
+          register
+        </button>
       </div>
     </>
   );

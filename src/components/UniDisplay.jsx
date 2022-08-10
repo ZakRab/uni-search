@@ -43,7 +43,7 @@ const UniDisplay = () => {
         </button>
       </div>
       <div className="margin-left">
-        <label for="country">Search within a country</label>
+        <label htmlFor="country">Search within a country</label>
         <select
           className="width240px form-select"
           value={countrySearch}
@@ -269,13 +269,11 @@ const UniDisplay = () => {
           data.map((university, idx) => {
             const isSaved = savesName.includes(university.name);
             return (
-              <>
-                <UniCard
-                  isSaved={isSaved}
-                  university={university}
-                  key={idx}
-                ></UniCard>
-              </>
+              <UniCard
+                key={idx}
+                isSaved={isSaved}
+                university={university}
+              ></UniCard>
             );
           })}
       </div>

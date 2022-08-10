@@ -1,28 +1,27 @@
 const express = require("express");
 const router = express.Router();
 const { add, remove, getByUser } = require("../models/saves.model");
-router.put("/add", async (req, res) => {
+const auth = require("../middleware/auth.middleware");
+router.put("/add", auth, async (req, res) => {
   const save = req.body;
-  if (!save.university || save.website || save.country || save.user_id) {
+  if (!save.university || save.website || save.country) {
     return res.send({
       success: false,
       data: null,
       error: "Invalid data provided",
     });
   }
-  const resObj = await add(save);
+  const resObj = await add({ ...save, user_id: req.user.id });
   return res.send(resObj);
 });
-router.put("/delete/:id/:user_id", async (req, res) => {
-  const id = req.params.id;
-  const user_id = req.params.user_id;
-  const resObj = await remove(id, user_id);
+router.put("/delete/:university", auth, async (req, res) => {
+  const university = req.params.university;
+  const resObj = await remove(university, req.user.id);
 
   return res.send(resObj);
 });
-router.get("/user/:user_id", async (req, res) => {
-  const user_id = req.params.user_id;
-  const resObj = await getByUser(user_id);
+router.get("/user", auth, async (req, res) => {
+  const resObj = await getByUser(req.user.id);
   return res.send(resObj);
 });
 

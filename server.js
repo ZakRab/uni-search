@@ -5,7 +5,7 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 const passport = require("./server/config/passport.config");
 const app = express();
-const port = process.env.port ?? 8080;
+const PORT = process.env.PORT ?? 8080;
 app.use(express.json());
 app.use(cookieParser());
 app.use(passport.initialize());
@@ -16,6 +16,6 @@ app.use("/api/users", userRoutes);
 app.get("*", (req, res) => {
   return res.sendFile("/build/index.html", { root: __dirname + "/" });
 });
-app.listen(port, () => {
+app.listen(PORT, () => {
   console.log("The server is up!");
 });
