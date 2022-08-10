@@ -28,8 +28,10 @@ export function SearchProvider(props) {
 
   const addSave = useCallback(
     async (university) => {
+      console.log("adding");
       try {
         const res = await axios.put("/api/saves/add", university);
+        console.log(res);
         if (res.data.success) {
           setSaves((curr) => [res.data.data, ...curr]);
         }

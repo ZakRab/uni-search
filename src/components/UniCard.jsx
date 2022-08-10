@@ -10,9 +10,9 @@ const UniCard = ({ university, isSaved }) => {
   return (
     <div
       className="display-card margin-top "
-      onClick={() => setWikiInput(university.name)}
+     
     >
-      <div>{university.name}</div>
+      <div >{university.name}</div>
       <div className="gray">{university.country}</div>
       <div className="flex flex-row justify">
         <a href={university.website} rel="noreferrer" target={"_blank"}>
@@ -29,22 +29,21 @@ const UniCard = ({ university, isSaved }) => {
         </a>
 
         {!isSaved ? (
-          <HiHeart
-            size={40}
-            className="gray "
+        <HiHeart
             onClick={() => {
               addSave(university);
-              console.log(university);
             }}
-            data-testid="saveHeartAdd"
-          >
-            Add to saves
-          </HiHeart>
+            size={40}
+            className="gray d-inline"
+           
+            data-testid="saveHeartAdd">Add to saves</HiHeart>
+            
         ) : (
           <HiHeart
             size={40}
             className=" red"
             onClick={() => {
+              console.log("bruh");
               removeSave(university);
             }}
             data-testid="saveHeartRemove"
@@ -53,6 +52,7 @@ const UniCard = ({ university, isSaved }) => {
           </HiHeart>
         )}
       </div>
+      <button onClick={() => setWikiInput(university.name)} className="btn btn-primary">see info</button>
     </div>
   );
 };
