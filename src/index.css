@@ -19,9 +19,6 @@ aside img{
   box-shadow: 0px 0px 1px rgb(17 18 17 ) ;
   padding: 10px;
 }
-.display-card:hover{
-  cursor:pointer
-}
 .uniInfoAside{
   border: black solid 2px;
   flex-basis: 400px;

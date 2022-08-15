@@ -69,16 +69,19 @@ function Login() {
           Sign in
         </button>
 
-        <button
-          className="btn btn-primary"
+        <a
+          className=""
           onClick={() => {
             if (username.length > 4 && password.length >= 8) {
               register(username, password);
+              alert(
+                "You have successfully registered an account. You can now Sign In"
+              );
             }
           }}
         >
-          register
-        </button>
+          Register Here
+        </a>
       </div>
     </>
   );
