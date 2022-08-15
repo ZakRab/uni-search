@@ -6,6 +6,10 @@ const cookieParser = require("cookie-parser");
 const passport = require("./server/config/passport.config");
 const app = express();
 const PORT = process.env.PORT ?? 8080;
+app.enable("trust proxy");
+app.use((req, res, next) => {
+  req.secure ? res.redirect("https://" + req.headers.host + req.url) : next();
+});
 app.use(express.json());
 app.use(cookieParser());
 app.use(passport.initialize());
