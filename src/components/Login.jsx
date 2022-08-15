@@ -72,14 +72,22 @@ function Login() {
 
         <a
           className=""
-          onClick={() => {
+          onClick={async () => {
             if (username.length > 4 && password.length >= 8) {
-              register(username, password);
-              new Swal(
-                "Successfully Registered",
-                "You Can Sign In Now ;)",
-                "success"
-              );
+              let res = await register(username, password);
+              if (res) {
+                new Swal(
+                  "Successfully Registered",
+                  "You Can Sign In Now ;)",
+                  "success"
+                );
+              } else {
+                new Swal(
+                  "Username already taken",
+                  "Please pick a different username",
+                  "error"
+                );
+              }
             }
           }}
         >
