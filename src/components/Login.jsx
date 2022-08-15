@@ -75,10 +75,11 @@ function Login() {
           onClick={() => {
             if (username.length > 4 && password.length >= 8) {
               register(username, password);
-              alert(
-                "You have successfully registered an account. You can now Sign In"
+              new Swal(
+                "Successfully Registered",
+                "You Can Sign In Now ;)",
+                "success"
               );
-              Swal("Account Created", "You can now Sign In");
             }
           }}
         >
