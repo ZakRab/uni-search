@@ -17,6 +17,7 @@ export function SearchProvider(props) {
       try {
         const res = await axios.get(`/api/saves/user`);
         if (res.data.success) {
+          console.log(res.data.data);
           setSaves(res.data.data);
         }
       } catch (error) {
@@ -28,14 +29,15 @@ export function SearchProvider(props) {
 
   const addSave = useCallback(
     async (university) => {
-      console.log("adding");
       try {
         const res = await axios.put("/api/saves/add", university);
         console.log(res);
         if (res.data.success) {
           setSaves((curr) => [res.data.data, ...curr]);
         }
-      } catch (error) {}
+      } catch (error) {
+        console.log(error);
+      }
     },
     [setSaves]
   );
@@ -43,10 +45,14 @@ export function SearchProvider(props) {
   const removeSave = useCallback(
     async (university) => {
       try {
-        const res = await axios.delete(`/api/saves/remove/${university.name}`);
+        console.log(university.name);
+        const res = await axios.delete(
+          `/api/saves/delete/${university.university}`
+        );
         if (res.data.success) {
+          console.log(res);
           setSaves((curr) =>
-            curr.filter((val) => val.name !== university.name)
+            curr.filter((val) => val.university !== university.university)
           );
         }
       } catch (error) {

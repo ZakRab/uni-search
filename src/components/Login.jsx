@@ -60,7 +60,9 @@ function Login() {
           onClick={() => {
             if (username.length > 0 && password.length > 0) {
               logIn(username, password);
-              // navigate("/search");
+              navigate("/search");
+            } else {
+              alert("you didnt put something in!");
             }
           }}
         >

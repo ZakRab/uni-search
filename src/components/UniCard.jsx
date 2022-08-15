@@ -8,11 +8,8 @@ const UniCard = ({ university, isSaved }) => {
   const { setWikiInput } = useContext(WikiContext);
   const { addSave, removeSave } = useContext(SearchContext);
   return (
-    <div
-      className="display-card margin-top "
-     
-    >
-      <div >{university.name}</div>
+    <div className="display-card margin-top ">
+      <div>{university.university}</div>
       <div className="gray">{university.country}</div>
       <div className="flex flex-row justify">
         <a href={university.website} rel="noreferrer" target={"_blank"}>
@@ -20,7 +17,8 @@ const UniCard = ({ university, isSaved }) => {
         </a>
         <a
           href={
-            "https://www.topuniversities.com/universities/" + university.name
+            "https://www.topuniversities.com/universities/" +
+            university.university
           }
           target={"_blank"}
           rel="noreferrer"
@@ -29,21 +27,21 @@ const UniCard = ({ university, isSaved }) => {
         </a>
 
         {!isSaved ? (
-        <HiHeart
+          <HiHeart
             onClick={() => {
               addSave(university);
             }}
             size={40}
             className="gray d-inline"
-           
-            data-testid="saveHeartAdd">Add to saves</HiHeart>
-            
+            data-testid="saveHeartAdd"
+          >
+            Add to saves
+          </HiHeart>
         ) : (
           <HiHeart
             size={40}
             className=" red"
             onClick={() => {
-              console.log("bruh");
               removeSave(university);
             }}
             data-testid="saveHeartRemove"
@@ -52,7 +50,12 @@ const UniCard = ({ university, isSaved }) => {
           </HiHeart>
         )}
       </div>
-      <button onClick={() => setWikiInput(university.name)} className="btn btn-primary">see info</button>
+      <button
+        onClick={() => setWikiInput(university.university)}
+        className="btn btn-primary"
+      >
+        see info
+      </button>
     </div>
   );
 };

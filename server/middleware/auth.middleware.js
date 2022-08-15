@@ -8,6 +8,6 @@ async function auth(req, res, next) {
     }
     req.user = user;
     return next();
-  });
+  })(req, req, next);
 }
 module.exports = auth;

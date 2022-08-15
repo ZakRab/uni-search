@@ -14,7 +14,7 @@ const UniDisplay = () => {
   } = useContext(SearchContext);
   const { data } = useAxiosUni();
   const savesName = useMemo(
-    () => saves.map((university) => university.name),
+    () => saves.map((university) => university.university),
     [saves]
   );
   const [preSearch, setPreSearch] = useState("");
@@ -267,7 +267,7 @@ const UniDisplay = () => {
       <div className="uniDisplay shadow-border-bottom">
         {data &&
           data.map((university, idx) => {
-            const isSaved = savesName.includes(university.name);
+            const isSaved = savesName.includes(university.university);
             return (
               <UniCard
                 key={idx}

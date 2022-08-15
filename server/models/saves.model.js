@@ -15,10 +15,11 @@ async function remove(university, user_id) {
   try {
     await query(
       "DELETE FROM saves WHERE saves.university = ? AND saves.user_id = ?",
-      [university.name, user_id]
+      [university, user_id]
     );
     return { success: true, data: "deleted successfully", error: null };
   } catch (err) {
+    console.log(err);
     return { success: false, data: null, error: "Something went wrong" };
   }
 }
@@ -29,6 +30,7 @@ async function getByUser(user_id) {
     ]);
     return { success: true, data: saves, error: null };
   } catch (err) {
+    console.log(err);
     return { success: false, data: null, error: "Something went wrong" };
   }
 }

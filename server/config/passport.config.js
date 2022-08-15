@@ -20,7 +20,7 @@ const jwtOptions = {
 passport.use(
   "jwt",
   new Strategy(jwtOptions, async (payload, done) => {
-    const [user] = await query("SELECT * FROM users WHERE user_id = ?", [
+    const [user] = await query("SELECT * FROM users WHERE id = ?", [
       payload.id,
     ]);
     try {

@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
-
+import { SearchContext } from "../context/SearchContext";
 const Menu = () => {
   const { loggedInUser, setLoggedInUser } = useContext(UserContext);
+  const { setSaves } = useContext(SearchContext);
   return (
     <header className="navbar navbar-expand-lg shadow-border">
       <div className="container-fluid links">
@@ -44,6 +45,7 @@ const Menu = () => {
               className="links menu-items text-black"
               onClick={() => {
                 setLoggedInUser(null);
+                // setSaves([]);
               }}
             >
               Logout
