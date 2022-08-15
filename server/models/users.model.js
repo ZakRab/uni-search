@@ -30,6 +30,7 @@ async function register(username, password) {
 
 async function login(username, password) {
   try {
+    console.log("trying to login from model to db");
     const [user] = await query("SELECT * FROM users WHERE users.username = ?", [
       username,
     ]);

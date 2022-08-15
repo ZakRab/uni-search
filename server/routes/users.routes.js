@@ -28,6 +28,7 @@ router.post("/login", async (req, res) => {
     });
   }
   const resObj = await login(username, password);
+  console.log("reached login route");
   if (resObj.success) {
     console.log(resObj);
     const user = resObj.data;
