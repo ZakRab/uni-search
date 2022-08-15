@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
+import Swal from "sweetalert2";
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -77,6 +78,7 @@ function Login() {
               alert(
                 "You have successfully registered an account. You can now Sign In"
               );
+              Swal("Account Created", "You can now Sign In");
             }
           }}
         >
