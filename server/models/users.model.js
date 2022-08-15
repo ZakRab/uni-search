@@ -8,7 +8,7 @@ async function register(username, password) {
       username,
     ]);
     if (user) {
-      return { success: false, data: null, error: "Username alreay taken" };
+      return { success: false, data: null, error: "Username already taken" };
     }
     const hashed = await bcrypt.hash(password, 12);
 

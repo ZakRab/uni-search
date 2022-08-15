@@ -43,7 +43,9 @@ export function UserProvider(props) {
       console.log(res);
       if (res.data.success) {
         console.log("registered!");
+        return true;
       }
+      return false;
     } catch (error) {
       console.error(error);
     }
