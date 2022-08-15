@@ -1,6 +1,5 @@
 import React, { useCallback, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 export const UserContext = React.createContext(null);
 
 export function UserProvider(props) {
@@ -50,21 +49,21 @@ export function UserProvider(props) {
     }
   });
 
-  // const verify = useCallback(async () => {
-  //   try {
-  //     const res = await axios.get("/api/user/verify");
-  //     if (res.data.success) {
-  //       setLoggedInUser(res.data.data);
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // });
+  const verify = useCallback(async () => {
+    try {
+      const res = await axios.get("/api/users/verify");
+      if (res.data.success) {
+        setLoggedInUser(res.data.data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  });
 
   return (
     <UserContext.Provider
       value={{
-        // verify,
+        verify,
         loggedInUser,
         setLoggedInUser,
         logIn,

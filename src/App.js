@@ -2,7 +2,7 @@ import Login from "./components/Login";
 import Menu from "./components/Menu";
 import SearchForm from "./components/SearchForm";
 import Saves from "./components/Saves";
-import { UserContext, verify } from "./context/UserContext";
+import { UserContext } from "./context/UserContext";
 import {
   BrowserRouter as Router,
   Routes,
@@ -14,13 +14,13 @@ import Footer from "./components/Footer";
 import { useEffect, useContext } from "react";
 
 function App() {
-  // const { verify } = useContext(UserContext);
-  // useEffect(() => {
-  //   async function init() {
-  //     await verify();
-  //   }
-  //   init();
-  // }, []);
+  const { verify } = useContext(UserContext);
+  useEffect(() => {
+    async function init() {
+      await verify();
+    }
+    init();
+  }, []);
 
   return (
     <>
