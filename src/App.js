@@ -2,6 +2,9 @@ import Login from "./components/Login";
 import Menu from "./components/Menu";
 import SearchForm from "./components/SearchForm";
 import Saves from "./components/Saves";
+
+import AuthorizedRoute from "./components/AuthorizedRoute";
+import UnauthorizedRoute from "./components/UnauthorizedRoute";
 import { UserContext } from "./context/UserContext";
 import {
   BrowserRouter as Router,
@@ -28,10 +31,15 @@ function App() {
         <Menu></Menu>
         <Routes>
           <Route path="/home" element={<Home></Home>}></Route>
-          <Route path="/login" element={<Login></Login>}></Route>
-          <Route path="/search" element={<SearchForm></SearchForm>}></Route>
-          <Route path="/saves" element={<Saves></Saves>}></Route>
-          <Route path="*" element={<Navigate to="/search" />} />
+          <Route
+            path="/login"
+            element={<UnauthorizedRoute comp={<Login />} />}
+          />
+          <Route
+            path="/search"
+            element={<AuthorizedRoute comp={<SearchForm />} />}
+          />
+          <Route path="/saves" element={<AuthorizedRoute comp={<Saves />} />} />
         </Routes>
         <Footer></Footer>
       </Router>

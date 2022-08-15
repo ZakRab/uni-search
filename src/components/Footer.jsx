@@ -12,7 +12,7 @@ const Footer = () => {
             <a href="/search">Search Universities</a>
           </li>
           <li className="list-inline-item">
-            <a href="/saved">Saved Universities</a>
+            <a href="/saves">Saved Universities</a>
           </li>
           <li className="list-inline-item">
             <a href="https://www.freeprivacypolicy.com/live/fdac571e-755b-42bc-9aad-4e9b3d78d16e">
