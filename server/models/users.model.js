@@ -33,6 +33,7 @@ async function login(username, password) {
     const [user] = await query("SELECT * FROM users WHERE users.username = ?", [
       username,
     ]);
+    console.log(user);
     if (!user) {
       return {
         success: false,
@@ -50,6 +51,7 @@ async function login(username, password) {
       error: null,
     };
   } catch (error) {
+    console.log(error);
     return { success: false, data: null, error: "Something went wrong :(" };
   }
 
