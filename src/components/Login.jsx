@@ -9,7 +9,8 @@ function Login() {
   const navigate = useNavigate();
   const { logIn, register } = useContext(UserContext);
   const [passText, setPassText] = useState(false);
-
+  const [regUsername, setRegUsername] = useState("");
+  const [regPassword, setRegPassword] = useState("");
   const showPassword = () => {
     setPassText(!passText);
   };
@@ -26,7 +27,7 @@ function Login() {
         </div>
         <hr></hr>
         <div className="d-flex justify">
-          <div>
+          <div className="flex-grow">
             <h2 className="text-center margin-bottom40px">Register</h2>
             <div>
               <div className="mb-3 container">
@@ -38,10 +39,10 @@ function Login() {
                 </label>
                 <input
                   className="form-control width70p margin-auto "
-                  value={username}
+                  value={regUsername}
                   id="userInput"
                   type={"text"}
-                  onChange={(e) => setUsername(e.target.value)}
+                  onChange={(e) => setRegUsername(e.target.value)}
                 ></input>
               </div>
               <div className="mb-3 container">
@@ -53,10 +54,10 @@ function Login() {
                 </label>
                 <input
                   className="form-control width70p margin-auto"
-                  value={password}
+                  value={regPassword}
                   id="passwordInput"
                   type={passText ? "text" : "password"}
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={(e) => setRegPassword(e.target.value)}
                 ></input>
               </div>
 
@@ -70,7 +71,7 @@ function Login() {
                 className="btn btn-primary margin-auto margin-bottom40px d-block width70p margin-top5px"
                 onClick={async () => {
                   if (username.length > 4 && password.length >= 8) {
-                    let res = await register(username, password);
+                    let res = await register(regUsername, regPassword);
                     if (res) {
                       new Swal(
                         "Successfully Registered",
@@ -91,7 +92,7 @@ function Login() {
               </button>
             </div>
           </div>
-          <div>
+          <div className="flex-grow">
             <h2 className="text-center margin-bottom40px">Sign in</h2>
             <div className="mb-3 container">
               <label htmlFor="userInput" className="form-label margin-left15p">
