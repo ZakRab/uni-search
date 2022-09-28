@@ -12,6 +12,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
+
 import Home from "./components/Home";
 import Footer from "./components/Footer";
 import { useEffect, useContext } from "react";
@@ -40,6 +41,7 @@ function App() {
             element={<AuthorizedRoute comp={<SearchForm />} />}
           />
           <Route path="/saves" element={<AuthorizedRoute comp={<Saves />} />} />
+          <Route path="*" element={<Navigate to="/login"></Navigate>}></Route>
         </Routes>
         <Footer></Footer>
       </Router>

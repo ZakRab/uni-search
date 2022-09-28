@@ -24,75 +24,124 @@ function Login() {
             alt="what"
           />
         </div>
-        <h1 className="text-center margin-bottom40px">Sign in</h1>
-        <div className="mb-3 container">
-          <label htmlFor="userInput" className="form-label margin-left15p">
-            Username
-          </label>
-          <input
-            className="form-control width70p margin-auto "
-            value={username}
-            id="userInput"
-            type={"text"}
-            onChange={(e) => setUsername(e.target.value)}
-          ></input>
-        </div>
-        <div className="mb-3 container">
-          <label htmlFor="passwordInput" className="form-label margin-left15p">
-            Password
-          </label>
-          <input
-            className="form-control width70p margin-auto"
-            value={password}
-            id="passwordInput"
-            type={passText ? "text" : "password"}
-            onChange={(e) => setPassword(e.target.value)}
-          ></input>
-        </div>
+        <hr></hr>
+        <div className="d-flex justify">
+          <div>
+            <h2 className="text-center margin-bottom40px">Register</h2>
+            <div>
+              <div className="mb-3 container">
+                <label
+                  htmlFor="userInput"
+                  className="form-label margin-left15p"
+                >
+                  Username
+                </label>
+                <input
+                  className="form-control width70p margin-auto "
+                  value={username}
+                  id="userInput"
+                  type={"text"}
+                  onChange={(e) => setUsername(e.target.value)}
+                ></input>
+              </div>
+              <div className="mb-3 container">
+                <label
+                  htmlFor="passwordInput"
+                  className="form-label margin-left15p"
+                >
+                  Password
+                </label>
+                <input
+                  className="form-control width70p margin-auto"
+                  value={password}
+                  id="passwordInput"
+                  type={passText ? "text" : "password"}
+                  onChange={(e) => setPassword(e.target.value)}
+                ></input>
+              </div>
 
-        <button
-          className="btn btn-primary margin-auto d-block width70p"
-          onClick={showPassword}
-        >
-          Show Password
-        </button>
-        <button
-          className="btn btn-primary margin-auto margin-bottom40px d-block width70p margin-top5px"
-          onClick={() => {
-            if (username.length > 0 && password.length > 0) {
-              logIn(username, password);
-              navigate("/search");
-            } else {
-              alert("you didnt put something in!");
-            }
-          }}
-        >
-          Sign in
-        </button>
+              <button
+                className="btn btn-primary margin-auto d-block width70p"
+                onClick={showPassword}
+              >
+                Show Password
+              </button>
+              <button
+                className="btn btn-primary margin-auto margin-bottom40px d-block width70p margin-top5px"
+                onClick={async () => {
+                  if (username.length > 4 && password.length >= 8) {
+                    let res = await register(username, password);
+                    if (res) {
+                      new Swal(
+                        "Successfully Registered",
+                        "You Can Sign In Now ;)",
+                        "success"
+                      );
+                    } else {
+                      new Swal(
+                        "Username already taken",
+                        "Please pick a different username",
+                        "error"
+                      );
+                    }
+                  }
+                }}
+              >
+                Register
+              </button>
+            </div>
+          </div>
+          <div>
+            <h2 className="text-center margin-bottom40px">Sign in</h2>
+            <div className="mb-3 container">
+              <label htmlFor="userInput" className="form-label margin-left15p">
+                Username
+              </label>
+              <input
+                className="form-control width70p margin-auto "
+                value={username}
+                id="userInput"
+                type={"text"}
+                onChange={(e) => setUsername(e.target.value)}
+              ></input>
+            </div>
+            <div className="mb-3 container">
+              <label
+                htmlFor="passwordInput"
+                className="form-label margin-left15p"
+              >
+                Password
+              </label>
+              <input
+                className="form-control width70p margin-auto"
+                value={password}
+                id="passwordInput"
+                type={passText ? "text" : "password"}
+                onChange={(e) => setPassword(e.target.value)}
+              ></input>
+            </div>
 
-        <a
-          className=""
-          onClick={async () => {
-            if (username.length > 4 && password.length >= 8) {
-              let res = await register(username, password);
-              if (res) {
-                new Swal(
-                  "Successfully Registered",
-                  "You Can Sign In Now ;)",
-                  "success"
-                );
-              } else {
-                new Swal(
-                  "Username already taken",
-                  "Please pick a different username",
-                  "error"
-                );
-              }
-            }
-          }}
-        >
-          Register Here
-        </a>
+            <button
+              className="btn btn-primary margin-auto d-block width70p"
+              onClick={showPassword}
+            >
+              Show Password
+            </button>
+            <button
+              className="btn btn-primary margin-auto margin-bottom40px d-block width70p margin-top5px"
+              onClick={() => {
+                if (username.length > 0 && password.length > 0) {
+                  logIn(username, password);
+                  navigate("/search");
+                } else {
+                  alert("you didnt put something in!");
+                }
+              }}
+            >
+              Sign in
+            </button>
+          </div>
+        </div>
       </div>
     </>
   );
