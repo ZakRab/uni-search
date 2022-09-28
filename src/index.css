@@ -250,10 +250,6 @@ footer{
   font-weight: 300;
 }
 
-{
-
-}
-
  @keyframes rotate-vert-center {
   0% {
     transform: rotateY(0);
